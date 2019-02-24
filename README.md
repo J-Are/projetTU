@@ -4,8 +4,5 @@
 
 [![codecov](https://codecov.io/gh/Jimmmyy/Projet-4A/branch/master/graph/badge.svg)](https://codecov.io/gh/Jimmmyy/Projet-4A)
 
-
-
-Hugo Blasco/Charles Cohen/Jimmy Nguyen/Emmanuelle Tourneroche
-
+TEST UNITAIRES
 

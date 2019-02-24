@@ -1,11 +1,14 @@
 package esiea.model;
 
-import static org.assertj.core.api.Assertions.assertThat;
 
-import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.ArrayList;
+import static org.assertj.core.api.Assertions.*;
+import java.util.Arrays;
+
 
 public class SupermarketTest {
 
@@ -30,7 +33,7 @@ public class SupermarketTest {
         
         assertThat(receipt.getTotalPrice()).isEqualTo(2.5*1.99);
     }
-    
+
     @Test
     public void testPrixPommeAvecReducPomme() {
         SupermarketCatalog catalog = new FakeCatalog();
@@ -44,7 +47,7 @@ public class SupermarketTest {
         teller.addSpecialOffer(SpecialOfferType.TenPercentDiscount, apples, 10.0);
 
         Receipt receipt = teller.checksOutArticlesFrom(cart);
-        
+       
         double expected = 3*1.99-3*1.99*0.1;
         
         assertThat(receipt.getTotalPrice()).isEqualTo(expected);
@@ -122,6 +125,84 @@ public class SupermarketTest {
     @Test
     public void testProduct() {
     	Product pomme= new Product("pomme",ProductUnit.Kilo);
-    	assertThat(pomme.equals(pomme),true);
+    	boolean truecondition=pomme.equals(pomme);
+    	assertTrue(truecondition);
+    	
+    	boolean falsecondition=pomme.equals(null);
+    	assertFalse(falsecondition);
+    	
+    	
     }
+    
+   @Test
+    public void testWrongProduct(){
+    	Product pomme= new Product("pomme",ProductUnit.Kilo);
+    	Object obj = new Object();
+    	assertNotEquals(pomme,obj);
+    }
+   
+    @Test
+    public void testNullProduct(){
+    	Product pomme= new Product("pomme",ProductUnit.Kilo);
+    	boolean condition=pomme.equals(null);
+    	assertFalse(condition);
+    }
+    
+    @Test
+    public void testGetUnitProduct(){
+    	Product pomme= new Product("pomme",ProductUnit.Kilo);
+    	ProductUnit Unite=pomme.getUnit();
+    	assertEquals(Unite,ProductUnit.Kilo);
+    }
+    
+    @Test
+    public void testGetterItemsReceipt(){
+    	Receipt ticket= new Receipt();
+    	List<ReceiptItem> items= new ArrayList<>();
+    	List<ReceiptItem> itemsdelobjet=ticket.getItems();
+    	
+    	assertEquals(items,itemsdelobjet);
+    }
+    
+    @Test
+    public void testGetterDiscountsReceipt(){
+    	
+    	Receipt ticket= new Receipt();
+    	List<Discount> discounts = new ArrayList<>();
+    	List<Discount> discountsdelobjet = ticket.getDiscounts();
+    	
+    	assertEquals(discounts,discountsdelobjet);
+    }
+    
+    @Test
+    public void testGetterPrice(){
+    	
+    	Product product=new Product("pomme",ProductUnit.Kilo);
+    	ReceiptItem ticket= new ReceiptItem(product,2.0,10.0,20.0);
+    	double prix=ticket.getPrice();
+    	double prix2=10.0;
+    	assertEquals(prix,prix2);
+    }
+    
+    @Test
+    
+    public void testGetterProduct(){
+    	Product product=new Product("pomme",ProductUnit.Kilo);
+    	ReceiptItem ticket= new ReceiptItem(product,2.0,10.0,20.0);
+    	Product verifProduct = ticket.getProduct();
+    	assertEquals(product,verifProduct);
+    }
+    
+    
+    @Test
+    
+    public void testGetterQuantity(){
+    	Product product=new Product("pomme",ProductUnit.Kilo);
+    	ReceiptItem ticket1= new ReceiptItem(product,2.0,10.0,20.0);
+    	double verifquantityproduct = ticket1.getQuantity();
+    	assertEquals(2.0, verifquantityproduct);
+    	
+    }
+    
+ 
 }
