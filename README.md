@@ -1,8 +1,8 @@
 ﻿# Projet-4A
-[![Build Status](https://travis-ci.com/Jimmmyy/Projet-4A.svg?branch=master)](https://travis-ci.com/Jimmmyy/Projet-4A)
+[![Build Status](https://travis-ci.org/J-Are/projetTU.svg?branch=master)](https://travis-ci.org/J-Are/projetTU)
 
 
-[![codecov](https://codecov.io/gh/Jimmmyy/Projet-4A/branch/master/graph/badge.svg)](https://codecov.io/gh/Jimmmyy/Projet-4A)
+[![codecov](https://travis-ci.org/J-Are/projetTU/master/graph/badge.svg)](https://travis-ci.org/J-Are/projetTU)
 
 TEST UNITAIRES
 
